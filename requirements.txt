@@ -1,0 +1,18 @@
+# Core
+requests>=2.31
+
+# AWS (S3 data lake, Glue/Step Functions interaction, RDS/Redshift loading)
+boto3>=1.34
+
+# Data formats (curated Parquet zone)
+pyarrow>=16.0
+
+# ODS (Postgres)
+psycopg2-binary>=2.9
+
+# Optional — Stage 8 RAG chatbot consumer (local, free)
+# chromadb>=0.5
+# sentence-transformers>=3.0
+
+# Dev / testing
+pytest>=8.0
