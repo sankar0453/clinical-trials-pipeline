@@ -10,7 +10,7 @@ resources are torn down after each session via Terraform.
 | Decision | Choice | Notes |
 |----------|--------|-------|
 | Freshness | **Daily batch** | Matches how ClinicalTrials.gov updates. Streaming would be wrong here. |
-| Orchestration | **AWS Step Functions** (no Lambda) | Triggers **Glue** jobs, not Lambda (account can't use Lambda). |
+| Orchestration | **AWS Step Functions** | Triggers **Glue** jobs |
 | Compute | **AWS Glue Python Shell jobs** | Serverless Python; cheap; Step Functions can `StartJobRun` directly. |
 | Scheduling | **EventBridge Scheduler** | Daily cron trigger for the state machine. |
 | Data lake | **S3**: raw (JSON) → curated (Parquet) | Partitioned by ingest date; medallion layers. |
@@ -21,7 +21,7 @@ resources are torn down after each session via Terraform.
 | Chatbot (optional) | reuse existing Python RAG chatbot | Consumes curated/ODS data. Stage 8. |
 
 ## ⚠️ Prerequisite (Stage 0) — verify account access
-The AWS account **cannot use Lambda**, which suggests it may be restricted. BEFORE building, confirm these are
+The AWS account which suggests it may be restricted. BEFORE building, confirm these are
 usable on the account (console or CLI): **Glue, Step Functions, RDS, Redshift Serverless, EventBridge, SNS, S3,
 IAM role creation.** If any are blocked, revisit the plan (e.g. run Glue-equivalent logic on a local/EC2 runner,
 or use a different/personal-sandbox account). Do not start Stage 1 until this passes.
