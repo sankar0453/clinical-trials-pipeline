@@ -6,6 +6,9 @@ into an operational data store (RDS Postgres), and optionally into a Redshift wa
 orchestrated by **AWS Step Functions** on a daily schedule. Built **incrementally as a learning project**; paid
 resources are torn down after each session via Terraform.
 
+Detailed designs: [hld.md](hld.md) (architecture, flows, non-functional) · [lld.md](lld.md) (modules, schemas,
+state machine, IAM, network, Terraform) · [sample-run.md](sample-run.md) (local ingest walkthrough).
+
 ## Scope & decisions (locked)
 | Decision | Choice | Notes |
 |----------|--------|-------|

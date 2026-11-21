@@ -56,7 +56,9 @@ python -m src.fetch --incremental                                          # dai
 pytest
 pytest tests/test_fetch.py -k retry   # subset
 ```
-Walkthrough for demos/interviews: `docs/sample-run.md`.
+Walkthrough for demos/interviews: `docs/sample-run.md`. Whole-pipeline design: `docs/hld.md` (high level) and
+`docs/lld.md` (schemas, state machine ASL, IAM, network, Terraform). Glue Python Shell runs Python 3.9, so keep
+`src/` 3.9-compatible even though local dev uses 3.12.
 There is no `src/pipeline.py` yet, despite the README/`.github/workflows/pipeline.yml` referencing
 `python -m src.pipeline` — that CLI entrypoint hasn't been built. Don't assume it exists.
 
